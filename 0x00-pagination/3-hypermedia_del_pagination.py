@@ -55,9 +55,9 @@ class Server:
                 but rows 3, 6 and 7 were deleted,
                 the user should still receive rows indexed 10 to 19 included.
         Returns:
-            Dict: {index: List[dataset], next_index: int, page_size: int, data: List}
+            Dict: {index: int, next_index: int, page_size: int, data: List}
         """
-        assert type(index) == int, "Index must be an integer"
+        assert type(index) is int, "Index must be an integer"
         assert index >= 0, "Index must be positive"
 
         indexed_dataset = self.indexed_dataset()
