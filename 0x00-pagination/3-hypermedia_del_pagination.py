@@ -37,7 +37,7 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = 0, page_size: int = 10) -> Dict:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
         Deletion-resilient hypermedia pagination
 
@@ -57,20 +57,19 @@ class Server:
         Returns:
             Dict: {index: int, next_index: int, page_size: int, data: List}
         """
+        dataset = self.indexed_dataset()
+        dataset_size = len(dataset)
+
         assert type(index) is int, "Index must be an integer"
-        assert index >= 0, "Index must be positive"
-
-        indexed_dataset = self.indexed_dataset()
-        dataset_size = len(indexed_dataset)
-
         assert index < dataset_size, "Index out of range"
+        assert index >= 0, "Index must be positive"
 
         data = []
         curr_index = index
 
         while len(data) < page_size and curr_index < dataset_size:
-            if curr_index in indexed_dataset:
-                data.append(indexed_dataset[curr_index])
+            if curr_index in dataset:
+                data.append(dataset[curr_index])
             curr_index += 1
 
         next_index = curr_index
