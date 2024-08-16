@@ -95,7 +95,12 @@ class Server:
         Example:
         >>> server = Server()
         >>> server.get_hyper(1, 2)
-        {'page_size': 2, 'page': 1 , 'data': [['1', 'Male', 'MILO', '205'], ['2', 'Female', 'AMELIA', '172']], 'next_page': 2, 'prev_page': None, 'total_pages': 326}
+        {'page_size': 2,
+        'page': 1,
+        'data': [['1', 'Male', 'MILO', '1'], ['2', 'Female', 'AMELIA', '2']],
+        'next_page': 2,
+        'prev_page': None,
+        'total_pages': 326,}
         """
         data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
