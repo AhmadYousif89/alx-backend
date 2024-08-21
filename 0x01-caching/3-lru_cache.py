@@ -24,8 +24,9 @@ class Node:
 class LRUCache(BaseCaching):
     """
     LRU Caching system implemented using a dictionary and a doubly linked list
-    for storing the data in the cache system
-    with searching and shifting time complexity of O(1).
+    for storing the data in the cache system.
+
+    The search and shift time complexity is O(1) for both put and get methods.
     """
 
     def __init__(self):
@@ -38,7 +39,7 @@ class LRUCache(BaseCaching):
 
     def _remove_node(self, node):
         """
-        Remove a node from the doubly linked list
+        Remove a node from the doubly linked list.
         This node is the least recently used node.
         """
         prev_node = node.prev
@@ -48,7 +49,7 @@ class LRUCache(BaseCaching):
 
     def _add_node_to_end(self, node):
         """
-        Add a node at end of the list
+        Add a node at the end of the list.
         The node is the most recently used node
         """
         prev_last = self.tail.prev
@@ -63,8 +64,8 @@ class LRUCache(BaseCaching):
         if key is None or item is None:
             return
 
+        # Maintain the order by removing the existing node before updating it
         if key in self.cache_data:
-            # Remove the existing node before updating it
             self._remove_node(self.cache_data[key])
 
         new_node = Node(key, item)
