@@ -6,10 +6,6 @@ A caching system is a temporary storage system that allows you to store the most
 By storing this data in a cache, we can access it more quickly than if we were to access it from the original storage location.
 This can help to improve the performance of our application.
 
-### Belady's Anomaly in Page Replacement Algorithms
-
--
-
 ## Caching algorithms and data structures
 
 There are many different caching algorithms and data structures that can be used to implement a caching system.
