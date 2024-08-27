@@ -12,7 +12,7 @@ bable = Babel(app)
 
 
 @app.route('/', methods=['GET'])
-def index():
+def index() -> str:
     """Main page for the Flask app"""
     return render_template('1-index.html')
 
@@ -24,6 +24,6 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize Config"""
         pass
