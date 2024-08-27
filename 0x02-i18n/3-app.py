@@ -7,7 +7,7 @@ from flask_babel import Babel
 from flask import Flask, render_template, request
 
 
-class Config:
+class Config(object):
     """Babel i18n configuration"""
 
     LANGUAGES = ["en", "fr"]
