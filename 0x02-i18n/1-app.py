@@ -3,8 +3,9 @@
 Basic Flask app with a single route
 """
 
-from flask import Flask, render_template
+from flask import Flask
 from flask_babel import Babel
+from flask import render_template
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -24,6 +25,6 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
-    def __init__(self) -> None:
-        """Initialize Config"""
-        pass
+
+if __name__ == "__main__":
+    app.run()
